@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King Centre 2024 - Show N</title>
+  <style>
+    /* Simple loading spinner styles */
+    #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+    }
+    #loading.hidden {
+      display: none;
+    }
+    #video-container {
+      display: none;
+      text-align: center; width: 1280px; height: 720px;
+    }
+    #chapter-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin: 20px;
+  text-align: center;
+}
+    #chapter-container button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #008CBA; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#chapter-container button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  transform: translateY(-2px); /* Lift the button on hover */
+}    #chapter-container button,
+#back-button {
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #008CBA; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#chapter-container button:hover,
+#back-button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  transform: translateY(-2px); /* Lift the button on hover */
+}
+ video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-rewind-button,
+video::-webkit-media-controls-return-to-realtime-button,
+video::-webkit-media-controls-seek-back-button,
+video::-webkit-media-controls-seek-forward-button, video::-webkit-media-controls-panel  {
+  display: none !important;
+}
+
+video {
+  width: 80%;
+  height: 80%;
+}
+
+video::-webkit-media-controls-timeline, video::-webkit-media-controls-fullscreen-button, video::-webkit-media-controls-timeline-container {
+  display: block !important;
+  pointer-events: all;
+  width: 100%;
+}
+    body {
+      background-color: #7AB9E9;
+      margin: 0;
+      padding: 0;
+      display: flex; align-items: center; justify-content: center;
+    } #recital-logo { width: 30%; height: 30%; } </style>
+</head>
+<body>
+  <div id="loading">Loading, please wait...</div>
+  <div id="chapter-container"><h1><img id="recital-logo" src="src/img/KCmovies.png"></h1></div>
+  <div id="video-container">
+    <video id="video">Your operating system does not support the video tag. Please check the system requirements</video>
+</br>      <div id="custom-controls">
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="fullscreen">Fullscreen</button> <button id="back-to-beginning">Back to Beginning</button>
+</br></br> <button id="back-button">Main Menu</button>
+  </div>
+  </div>
+  <script src="src/js/renderer.js"></script>
+</body>
+</html>

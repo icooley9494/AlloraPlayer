@@ -1,0 +1,76 @@
+{
+  "name": "AlloraPlayer",
+  "version": "1.6.3",
+  "description": "A secure video player and USB dongle 2FA package for the distribution of copyrighted content.",
+  "main": "src/js/main.js",
+  "author": "Ian Cooley <alloraproductions@gmail.com>",
+  "scripts": {
+    "start": "electron --js-flags='--max-old-space-size=8192' .",
+    "build:mac": "electron-builder --mac --publish=never",
+    "build:win": "electron-builder --win --publish=never",
+    "build:all": "electron-builder --mac --win --publish=never"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "dialog": "^0.3.1",
+    "electron-is-dev": "^3.0.1",
+    "electron-prompt": "^1.7.0",
+    "fs-extra": "^10.0.0",
+    "macaddress": "^0.5.3",
+    "os": "^0.1.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.alloraproductions.alloraplayer",
+    "productName": "AlloraPlayer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "devices.json"
+    ],
+    "mac": {
+      "icon": "src/img/MovieReel.icns"
+    },
+    "win": {
+      "icon": "src/img/MovieReel.ico"
+    },
+    "asar": false,
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    }
+  }
+}
